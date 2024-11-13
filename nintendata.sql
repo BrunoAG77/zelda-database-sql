@@ -1,7 +1,7 @@
 create table zelda_games ( 
     gameid integer not null, 
     name varchar(50) not null, 
-	years integer not null, 
+    years integer not null, 
     console varchar (50) not null, 
     rating float not null, 
     primary key (gameid) 
@@ -33,6 +33,13 @@ insert into zelda_games (gameid, name, years, console, rating) values (22,'Tears
 insert into zelda_games (gameid, name, years, console, rating) values (23,'Echoes of Wisdom',2024,'Switch',8.6);
 
 select * from zelda_games;
+
+select * from zelda_games
+	order by rating;
+
+select console, count(*) as console_count from zelda_games 
+    group by console
+    order by console_count;
     
 select gameid, name, rating from zelda_games where rating > (
     select avg (rating)
